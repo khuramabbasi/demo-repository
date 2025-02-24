@@ -1,0 +1,35 @@
+name: hello-world
+
+on: push
+
+jobs:
+  my-job:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step to print "Hello World!"
+      - name: Print Hello World
+        run: echo "Hello World!"
+
+      # Build step (e.g., for Node.js)
+      - name: Build Project
+        run: |
+          echo "Building the project..."
+          # Replace with your actual build command
+          # npm install
+          # npm run build
+
+      # Test step (e.g., for Node.js)
+      - name: Run Tests
+        run: |
+          echo "Running tests..."
+          # Replace with your actual test command
+          # npm test
+
+      # Deploy step (e.g., for a web app deployment)
+      - name: Deploy Project
+        run: |
+          echo "Deploying the project..."
+          # Replace with your actual deployment command
+          # npm run deploy
+
