@@ -3,33 +3,30 @@ name: hello-world
 on: push
 
 jobs:
-  my-job:
+  build:
     runs-on: ubuntu-latest
-
     steps:
-      # Step to print "Hello World!"
-      - name: Print Hello World
-        run: echo "Hello World!"
-
-      # Build step (e.g., for Node.js)
+      - name: Checkout code
+        uses: actions/checkout@v2
       - name: Build Project
         run: |
           echo "Building the project..."
-          # Replace with your actual build command
+          # Add your build commands here (for example, for Node.js)
           # npm install
           # npm run build
 
-      # Test step (e.g., for Node.js)
+  test:
+    runs-on: ubuntu-latest
+    needs: build  # This ensures that the test job runs only after the build job is successful
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
       - name: Run Tests
         run: |
           echo "Running tests..."
-          # Replace with your actual test command
+          # Add your test commands here (for example, for Node.js)
           # npm test
 
-      # Deploy step (e.g., for a web app deployment)
-      - name: Deploy Project
-        run: |
-          echo "Deploying the project..."
-          # Replace with your actual deployment command
-          # npm run deploy
+  deploy:
+    runs-on
 
